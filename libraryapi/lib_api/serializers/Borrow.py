@@ -65,6 +65,8 @@ class BorrowWithBooksSerializer(serializers.ModelSerializer):
         return_at = obj.return_at
         now = date.today()
         days = (now - return_at).days -1
+        if days < 0:
+            days = 0
         return  days
     def get_rate(self,obj):
         config = Config.objects.get(name='fine')
