@@ -92,4 +92,12 @@ class BookBorrowLog(models.Model):
     created_at = models.DateTimeField( null=True,blank=True)
     date = models.DateTimeField( null=True,blank=True)
 
+class Music(models.Model):
+    class Meta:
+        db_table = "musics"
+        # unique_together = ('code', 'name')
+    code = models.CharField(max_length=50,unique=True)
+    name = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+
 
